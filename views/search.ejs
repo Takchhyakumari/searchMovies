@@ -1,7 +1,40 @@
-<h1>
-	Welcome
-</h1>
-<form action="/results" method="GET">
-	<input type="text" placeholder="search term" name="name">
-	<input type="submit">
-</form>
+<%- include("../partials/header")%>
+<div class="ui olive message">
+	<i class="close icon"></i>
+		<div class="header">
+			Welcome back!
+		</div>
+	<p>Just type the title of the movie in the search bar.</p>
+</div>
+
+<div class="ui center aligned container" style="padding-top: 10rem;"> 
+	<h1 class="ui center aligned header">
+	<div style="padding-bottom: 5rem; color:white; font-family: Papyrus"> 
+			Search Movie
+		</div>
+		</h1>
+	<div class="ui center aligned container"> 
+		<form class="ui big form" action="/results" method="GET">
+			<div class="ui large center fluid input focus" style="margin-left: 14rem; margin-right: 14rem; font-family: Papyrus">
+				<input required type="text" placeholder="search term" name="name" style="font-family: Papyrus">
+			</div>
+			<br>
+			<div style="padding-top: 2rem; font-family: Papyrus">
+				<button class="ui teal button" style="font-family: Papyrus">
+					Submit
+				</button>	
+			</div>
+		</form>
+	</div>
+</div>
+
+<script>
+	$('.message .close')
+	.on('click', function() {
+	$(this)
+	.closest('.message')
+	.transition('fade');
+	});
+</script>
+
+<%- include("../partials/footer")%>

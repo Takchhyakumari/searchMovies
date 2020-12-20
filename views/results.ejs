@@ -1,9 +1,24 @@
-<h1>
-	Welcome
-</h1>
-<ul>
-	<% data["Search"].forEach(function(movie){ %>
-		<li><strong><%= movie["Title"] %></strong> - <em><%= movie["Year"]%></em></li>
-	<% }) %>
-</ul>
-<a href="/">Search again</a>
+<%- include("../partials/header")%>
+<div class="container" style="padding-top: 4rem; padding-left: 4rem; padding-right: 4rem; padding-bottom: 4rem; background-image: linear-gradient(to right,black,#8c510e, black);">
+	<h3 class="ui center aligned icon header">
+		<div class="content" style="padding-bottom: 4rem;">
+		  <a href="/" style="color: white;"><i class="search icon"><span style="font-family: Papyrus;">   Search Again</span></i></a>
+		</div>
+	</h3>
+	<div class="ui three stackable cards">
+		<% data["Search"].forEach(function(movie){ %>
+  			<div class="card">
+				<div class="image">
+					 <img class=" image fluid" src="<%= movie["Poster"]%>">
+				</div>
+				<h2 style="margin-left: 2rem;">
+					<strong><i class="film icon"></i>    <span style="font-family: Papyrus;"><%=movie["Title"] %></span></strong>
+				</h2>
+				<h3 style="margin-left: 2rem; padding-bottom:2rem;">
+					<strong><i class="calendar alternate outline icon"></i>    <span style="font-family: Garamond;"><%=movie["Year"] %></span></strong>
+				</h3>
+			</div>
+		<% }) %>
+	</div>
+</div>
+<%- include("../partials/footer")%>
